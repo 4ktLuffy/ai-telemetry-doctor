@@ -245,7 +245,7 @@ aidoctor capabilities --setup myapp.sentry_setup            # compact Markdown b
 aidoctor capabilities --dsn-from-env --json --out caps.json
 ```
 
-**Not verified:** whether Seer reads custom contexts or tags when it explains an issue. The data is on every event, so you can search on the tags and read the context in the event; paste the `--md` block into a Seer chat to be sure it is seen. Static-mode gen_ai span items get the attributes through an event processor on the global scope; that path is tested against sentry-sdk 2.71.0 only.
+**Checked once with Seer (2026-10-07, sentry-sdk 2.71.0, one issue):** an event sent after `attach()` carried `ai_telemetry.tool_errors=unobservable`. Asked for the root cause, Seer quoted that tag and followed it into the SDK: it named `_tool_handler_wrapper` and `_instrument_v2_tool_call` (only raised exceptions count as errors) and pointed out that `SPANDATA.MCP_TOOL_RESULT_IS_ERROR` is defined but never set. That is one run on one issue, so treat it as "Seer can use this", not as a guarantee for every analysis. The tags are also searchable in Sentry, and the `--md` block can be pasted into a Seer chat. Static-mode gen_ai span items get the attributes through an event processor on the global scope; that path is tested against sentry-sdk 2.71.0 only.
 
 ## Repair tournament: the smallest change that fixes it, checked
 
