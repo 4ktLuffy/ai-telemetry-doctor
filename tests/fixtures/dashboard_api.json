@@ -1,0 +1,15 @@
+{
+  "agents": {"data": [{"count()": 42, "failure_rate()": 0.02, "p95(span.duration)": 18200}]},
+  "models": {"data": [
+    {"gen_ai.response.model": "gpt-4o-2024-08-06", "count()": 900, "failure_rate()": 0.01, "p95(span.duration)": 2400, "sum(gen_ai.usage.input_tokens)": 1200000, "sum(gen_ai.usage.output_tokens)": 180000},
+    {"gen_ai.response.model": "", "count()": 100, "failure_rate()": 0.0, "p95(span.duration)": 900, "sum(gen_ai.usage.input_tokens)": 50000, "sum(gen_ai.usage.output_tokens)": 9000}
+  ]},
+  "models_extra": {"data": [
+    {"gen_ai.response.model": "gpt-4o-2024-08-06", "sum(gen_ai.usage.input_tokens.cached)": 300000, "sum(gen_ai.cost.total_tokens)": 5.2},
+    {"gen_ai.response.model": "", "sum(gen_ai.usage.input_tokens.cached)": 0, "sum(gen_ai.cost.total_tokens)": 0.3}
+  ]},
+  "tools": {"data": [{"gen_ai.tool.name": "search", "count()": 300, "failure_rate()": 0.05, "p95(span.duration)": 1500}]},
+  "mcp_tools": {"data": [{"mcp.tool.name": "lookup_order", "count()": 120, "failure_rate()": 0.0, "p95(span.duration)": 4200}]},
+  "content": {"data": [{"count()": 0}]},
+  "content_legacy": {"data": [{"count()": 0}]}
+}
